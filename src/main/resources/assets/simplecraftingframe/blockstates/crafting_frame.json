@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": {"model": "simplecraftingframe:block/crafting_frame"},
+    "facing=east": {"model": "simplecraftingframe:block/crafting_frame", "y": 90 },
+    "facing=south": {"model": "simplecraftingframe:block/crafting_frame", "y": 180 },
+    "facing=west": {"model": "simplecraftingframe:block/crafting_frame", "y": 270 }
+  }
+}

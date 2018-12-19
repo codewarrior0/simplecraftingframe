@@ -1,0 +1,15 @@
+{
+  "type": "crafting_shaped",
+  "pattern": ["sss", "scs", "sss"],
+  "key":{
+    "s":{
+      "item": "minecraft:stick"
+    },
+    "c":{
+      "item": "minecraft:crafting_table"
+    }
+  },
+  "result":{
+    "item": "simplecraftingframe:crafting_frame"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": "simplecraftingframe",
+  "name": "Simple Crafting Frame",
+  "version": "1.0.0",
+  "side": "universal",
+  "initializers": [
+    "mod.codewarrior.simplecraftingframe.SimpleCraftingFrame"
+  ],
+  "requires": {
+    "fabric": "*"
+  },
+  "mixins": {
+    "client": "simplecraftingframe.client.json",
+    "common": "simplecraftingframe.common.json"
+  }
+}
