@@ -8,3 +8,5 @@ Inspired by the Super Crafting Frame mod - built from scratch for the Fabric
 Mod Loader without any knowledge of the original mod's workings.
 
 Created for Minecraft 1.14 (Snapshot 18w50a) and Fabric.
+
+[Curseforge page](https://minecraft.curseforge.com/projects/simple-crafting-frame)
