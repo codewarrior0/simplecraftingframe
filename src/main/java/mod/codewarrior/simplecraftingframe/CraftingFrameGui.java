@@ -7,7 +7,7 @@ import net.minecraft.client.gui.container.RecipeBookGui;
 import net.minecraft.client.gui.ingame.RecipeBookProvider;
 import net.minecraft.client.gui.widget.RecipeBookButtonWidget;
 import net.minecraft.client.resource.language.I18n;
-import net.minecraft.container.ActionTypeSlot;
+import net.minecraft.container.SlotActionType;
 import net.minecraft.container.CraftingContainer;
 import net.minecraft.container.Slot;
 import net.minecraft.entity.player.PlayerInventory;
@@ -99,7 +99,7 @@ public class CraftingFrameGui extends ContainerGui implements RecipeBookProvider
         return this.recipeBookGui.isClickOutsideBounds(var1, var3, this.left, this.top, this.containerWidth, this.containerHeight, var7) && var8;
     }
 
-    protected void onMouseClick(Slot var1, int var2, int var3, ActionTypeSlot var4) {
+    protected void onMouseClick(Slot var1, int var2, int var3, SlotActionType var4) {
         super.onMouseClick(var1, var2, var3, var4);
         this.recipeBookGui.slotClicked(var1);
     }

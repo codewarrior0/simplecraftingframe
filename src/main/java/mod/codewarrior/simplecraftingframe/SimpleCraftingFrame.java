@@ -60,8 +60,8 @@ public class SimpleCraftingFrame implements ModInitializer {
 		CustomPayloadPacketRegistry.CLIENT.register(FRAME_UPDATE, SimpleCraftingFrame::onFrameUpdate);
 
 
-		ContainerProviderImpl.INSTANCE.registerFactory(CONTAINER_ID, (playerEntity, buf) -> new CraftingFrameContainer(playerEntity.inventory, playerEntity.world, buf.readBlockPos()));
-		GuiProviderImpl.INSTANCE.registerFactory(CONTAINER_ID, (playerEntity, buf) -> new CraftingFrameGui(playerEntity.inventory, buf.readBlockPos()));
+		ContainerProviderImpl.INSTANCE.registerFactory(CONTAINER_ID, (id, playerEntity, buf) -> new CraftingFrameContainer(playerEntity.inventory, playerEntity.world, buf.readBlockPos()));
+		GuiProviderImpl.INSTANCE.registerFactory(CONTAINER_ID, (id, playerEntity, buf) -> new CraftingFrameGui(playerEntity.inventory, buf.readBlockPos()));
 		BlockEntityRendererRegistry.INSTANCE.register(CraftingFrameBlockEntity.class, new CraftingFrameBlockEntityRenderer());
 
 	}

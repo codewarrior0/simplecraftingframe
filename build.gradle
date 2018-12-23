@@ -5,7 +5,7 @@ buildscript {
 }
 
 plugins {
-	id 'fabric-loom' version '0.1.0-SNAPSHOT'
+	id 'fabric-loom' version '0.2.0-SNAPSHOT'
 }
 
 sourceCompatibility = 1.8
@@ -17,15 +17,11 @@ version = "1.0.0"
 minecraft {
 }
 
-repositories {
-	mavenLocal()
-}
-
 dependencies {
 	minecraft "com.mojang:minecraft:18w50a"
-	mappings "net.fabricmc:yarn:18w50a.local"
-	modCompile "net.fabricmc:fabric-loader:0.2.0.local"
+	mappings "net.fabricmc:yarn:18w50a.67"
+	modCompile "net.fabricmc:fabric-loader:0.3.0.74"
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
-	modCompile "net.fabricmc:fabric:0.1.1.local"
+	modCompile "net.fabricmc:fabric:0.1.2.63"
 }

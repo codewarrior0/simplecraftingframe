@@ -1,6 +1,6 @@
 package mod.codewarrior.simplecraftingframe;
 
-import net.minecraft.container.ActionTypeSlot;
+import net.minecraft.container.SlotActionType;
 import net.minecraft.container.CraftingContainer;
 import net.minecraft.container.Slot;
 import net.minecraft.entity.player.PlayerEntity;
@@ -113,11 +113,11 @@ public class CraftingFrameContainer extends CraftingContainer {
     }
 
     @Override
-    public ItemStack onSlotClick(int slot, int button, ActionTypeSlot action, PlayerEntity player) {
+    public ItemStack onSlotClick(int slot, int button, SlotActionType action, PlayerEntity player) {
         if(slot == 0) return ItemStack.EMPTY;
 
         if(slot < 10 && slot >= 0) {
-            if (action == ActionTypeSlot.PICKUP || action == ActionTypeSlot.QUICK_CRAFT) {
+            if (action == SlotActionType.PICKUP || action == SlotActionType.QUICK_CRAFT) {
                 ItemStack cursorStack = player.inventory.getCursorStack();
                 if (!cursorStack.isEmpty()) {
                     ItemStack ghost = cursorStack.copy();
@@ -130,12 +130,12 @@ public class CraftingFrameContainer extends CraftingContainer {
 
                 return ItemStack.EMPTY;
 
-            } else if (action == ActionTypeSlot.THROW) {
+            } else if (action == SlotActionType.THROW) {
                 this.slotList.get(slot).setStack(ItemStack.EMPTY);
                 this.onContentChanged(craftingInv);
                 return ItemStack.EMPTY;
 
-            } else if (action == ActionTypeSlot.QUICK_MOVE) {
+            } else if (action == SlotActionType.QUICK_MOVE) {
                 return ItemStack.EMPTY;
             }
         }

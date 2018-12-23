@@ -5,7 +5,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.block.entity.BlockEntityRenderer;
 import net.minecraft.client.render.entity.ItemFrameEntityRenderer;
-import net.minecraft.client.render.model.json.ModelTransformations;
+import net.minecraft.client.render.model.json.ModelTransformation;
 import net.minecraft.item.FilledMapItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -30,7 +30,7 @@ public class CraftingFrameBlockEntityRenderer extends BlockEntityRenderer<Crafti
 
 
             MinecraftClient.getInstance().getItemRenderer()
-                    .renderItemWithTransformation(ItemStack_1, ModelTransformations.Type.FIXED);
+                    .renderItemWithTransformation(ItemStack_1, ModelTransformation.Type.FIXED);
 
             GlStateManager.popMatrix();
         }
