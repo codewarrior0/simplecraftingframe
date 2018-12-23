@@ -209,17 +209,23 @@ public class CraftingFrameBlockEntity extends BlockEntity implements ClientSeria
             IntStream.range(0, inv.getInvSize()).mapToObj(inv::getInvStack).forEach(finder::addNormalItem);
         }
 
+        int amount = 1;
+        if(craftStack) {
+            amount = recipe.getOutput().getMaxAmount() / recipe.getOutput().getAmount();
+        }
+
         IntList inputs = new IntArrayList();
-        if(!finder.findRecipe(recipe, inputs)) return;
+        amount = finder.countRecipeCrafts(recipe, amount, inputs);
+        if (amount == 0) return;
 
         for(int itemId: inputs) {
             ItemStack inputKind = RecipeFinder.getStackFromId(itemId);
             int inputSlot = player.inventory.method_7371(inputKind);
             if (inputSlot != -1) {
-                if (player.inventory.getInvStack(inputSlot).getAmount() == 1) {
+                if (player.inventory.getInvStack(inputSlot).getAmount() == amount) {
                     player.inventory.removeInvStack(inputSlot);
                 } else {
-                    player.inventory.takeInvStack(inputSlot, 1);
+                    player.inventory.takeInvStack(inputSlot, amount);
                 }
             }
             else if(inv != null) {
@@ -229,10 +235,10 @@ public class CraftingFrameBlockEntity extends BlockEntity implements ClientSeria
                             && stack.getItem() == inputKind.getItem()
                             && ItemStack.areTagsEqual(stack, inputKind)
                     ) {
-                        if (stack.getAmount() == 1) {
+                        if (stack.getAmount() == amount) {
                             inv.removeInvStack(slot);
                         } else {
-                            inv.takeInvStack(slot, 1);
+                            inv.takeInvStack(slot, amount);
                         }
                         break;
                     }
@@ -259,7 +265,9 @@ public class CraftingFrameBlockEntity extends BlockEntity implements ClientSeria
                 this.pos.getY() + 0.5,
                 this.pos.getZ() + 0.5);
 
-        droppedItem.setStack(this.resultInv.getInvStack(0).copy());
+        ItemStack result = this.resultInv.getInvStack(0).copy();
+        result.setAmount(result.getAmount() * amount);
+        droppedItem.setStack(result);
         player.world.spawnEntity(droppedItem);
     }
 
